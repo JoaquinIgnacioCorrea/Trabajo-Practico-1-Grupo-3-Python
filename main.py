@@ -27,7 +27,7 @@ def menu():
             menu = False
         else:
             print("Opción inválida. Intenta de nuevo.")
-            input("Presiona Enter para continuar...")  # pausa para que vea el error
+            input("Presiona Enter para continuar...")
 
 def obtain_games():
     obtained_games = []
