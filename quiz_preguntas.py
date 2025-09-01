@@ -98,15 +98,14 @@ array_preguntas = [
     }
 ]
 
-print('🔍 Bienvenido al juego de preguntas y respuestas 🔍')
-print('A continuación te presentaremos una serie de 6 preguntas y respuestas')
-print('Las respuestas serán 4 opciones (A, B, C, D), y solo una será la correcta')
-print('Cada pregunta correcta te dará 1 punto')
-print('Cada pregunta incorrecta te restará 0.5 puntos')
-print('El juego terminará cuando respondas todas las preguntas')    
-print('==========================================================')
-
-def play():
+def play():    
+    print('🔍 Bienvenido al juego de preguntas y respuestas 🔍')
+    print('A continuación te presentaremos una serie de 6 preguntas y respuestas')
+    print('Las respuestas serán 4 opciones (A, B, C, D), y solo una será la correcta')
+    print('Cada pregunta correcta te dará 1 punto')
+    print('Cada pregunta incorrecta te restará 0.5 puntos')
+    print('El juego terminará cuando respondas todas las preguntas')    
+    print('==========================================================')
     repetir = True
     while repetir:
         puntaje = 0

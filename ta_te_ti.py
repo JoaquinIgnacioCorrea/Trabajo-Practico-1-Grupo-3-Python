@@ -17,7 +17,7 @@ def VerificarGanador(tablero, jugador):
             return jugador
     return None
 
-def RealizarJugada(jugador, tablero):
+def RealizarJugada(jugador, tablero, Jugador1, Jugador2):
     movimiento = 0
     while (movimiento not in range(1,10)):
         MostrarTablero(Jugador1, Jugador2, tablero)
@@ -44,32 +44,33 @@ def ReiniciarJuego ():
         print("¡Gracias por jugar!")
     return reiniciar
 #endregion
+def play():
 
-reiniciar = "s"
+    reiniciar = "s"
 
-while reiniciar == "s":
-    os.system("cls")
-    print("Bienvenido al juego de Ta-Te-Ti\n")
-
-    Jugador1 = SelectCharacter()
-    Jugador2 = "X" if Jugador1 == "O" else "O"
-    jugadores = [Jugador1, Jugador2]
-    tablero = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    ganador = None
-    turno = 0
-
-    print(f"\nJugador 1 es {Jugador1}\tJugador 2 es {Jugador2}\n")
-
-    while ganador is None:
-        print(f"Turno del jugador {jugadores[turno]}")
-        RealizarJugada(jugadores[turno], tablero)
+    while reiniciar == "s":
         os.system("cls")
-        ganador = VerificarGanador(tablero, jugadores[turno])
-        if ganador is None and all(pos in ["X", "O"] for pos in tablero):
-            ganador = "e"
-        turno = 1 if turno == 0 else 0
+        print("Bienvenido al juego de Ta-Te-Ti\n")
 
-    os.system("cls")
-    print("Hubo un empate") if ganador == "e"  else print(f"El ganador es: {ganador}")
-    
-    reiniciar = ReiniciarJuego()
+        Jugador1 = SelectCharacter()
+        Jugador2 = "X" if Jugador1 == "O" else "O"
+        jugadores = [Jugador1, Jugador2]
+        tablero = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        ganador = None
+        turno = 0
+
+        print(f"\nJugador 1 es {Jugador1}\tJugador 2 es {Jugador2}\n")
+
+        while ganador is None:
+            print(f"Turno del jugador {jugadores[turno]}")
+            RealizarJugada(jugadores[turno], tablero, Jugador1, Jugador2)
+            os.system("cls")
+            ganador = VerificarGanador(tablero, jugadores[turno])
+            if ganador is None and all(pos in ["X", "O"] for pos in tablero):
+                ganador = "e"
+            turno = 1 if turno == 0 else 0
+
+        os.system("cls")
+        print("Hubo un empate") if ganador == "e"  else print(f"El ganador es: {ganador}")
+        
+        reiniciar = ReiniciarJuego()
