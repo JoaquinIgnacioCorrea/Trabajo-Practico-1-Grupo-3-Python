@@ -106,44 +106,45 @@ print('Cada pregunta incorrecta te restará 0.5 puntos')
 print('El juego terminará cuando respondas todas las preguntas')    
 print('==========================================================')
 
-repetir = True
-while repetir:
-    puntaje = 0
-    preguntas_aleatorias = random.sample(array_preguntas, 6)
-    
-    for pregunta in preguntas_aleatorias:
-        print(pregunta['pregunta'])
-        index = 0
-        for opcion in pregunta['opciones']:
-            if index == 0:
-                print(f"A. {opcion}")
-            elif index == 1:
-                print(f"B. {opcion}")
-            elif index == 2:
-                print(f"C. {opcion}")
+def play():
+    repetir = True
+    while repetir:
+        puntaje = 0
+        preguntas_aleatorias = random.sample(array_preguntas, 6)
+        
+        for pregunta in preguntas_aleatorias:
+            print(pregunta['pregunta'])
+            index = 0
+            for opcion in pregunta['opciones']:
+                if index == 0:
+                    print(f"A. {opcion}")
+                elif index == 1:
+                    print(f"B. {opcion}")
+                elif index == 2:
+                    print(f"C. {opcion}")
+                else:
+                    print(f"D. {opcion}")
+                index += 1
+            respuesta = input('Ingresa la respuesta (A, B, C, D): ')
+            if respuesta.upper() == pregunta['respuesta_correcta']:
+                print('✅ Respuesta correcta')
+                puntaje += 1
             else:
-                print(f"D. {opcion}")
-            index += 1
-        respuesta = input('Ingresa la respuesta (A, B, C, D): ')
-        if respuesta.upper() == pregunta['respuesta_correcta']:
-            print('✅ Respuesta correcta')
-            puntaje += 1
+                print('❌ Respuesta incorrecta')
+                puntaje -= 0.5
+            print('==========================================================')
+
+        print('Tu puntaje final es: ', puntaje)
+        if puntaje >= 3:
+            print('🎉 ¡Felicidades! Has ganado el juego')
         else:
-            print('❌ Respuesta incorrecta')
-            puntaje -= 0.5
-        print('==========================================================')
+            print('❌ 😭 Has perdido el juego')
 
-    print('Tu puntaje final es: ', puntaje)
-    if puntaje >= 3:
-        print('🎉 ¡Felicidades! Has ganado el juego')
-    else:
-        print('❌ 😭 Has perdido el juego')
-
-    print('Quieres jugar de nuevo? (s/n)')
-    repetir = input()
-    if repetir == 's':
-        print('🔍 Bienvenido al juego de preguntas y respuestas 🔍')
-        repetir = True
-    else:
-        print('Gracias por jugar')
-        repetir = False
+        print('Quieres jugar de nuevo? (s/n)')
+        repetir = input()
+        if repetir == 's':
+            print('🔍 Bienvenido al juego de preguntas y respuestas 🔍')
+            repetir = True
+        else:
+            print('Gracias por jugar')
+            repetir = False
