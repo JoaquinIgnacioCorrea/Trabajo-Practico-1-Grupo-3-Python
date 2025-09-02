@@ -98,7 +98,7 @@ array_preguntas = [
     }
 ]
 
-def play():    
+def play_quiz_preguntas():    
     print('🔍 Bienvenido al juego de preguntas y respuestas 🔍')
     print('A continuación te presentaremos una serie de 6 preguntas y respuestas')
     print('Las respuestas serán 4 opciones (A, B, C, D), y solo una será la correcta')

@@ -22,7 +22,7 @@ def determinar_ganador(jugador: str, bot: str) -> int:
         return 1
     return -1
 
-def play():
+def play_piedra_papel_o_tijera():
     print("Piedra, Papel o Tijera (vs Bot)")
     print("Opciones válidas: piedra, papel, tijera")
     rondas = 3  # cantidad fija de rondas
